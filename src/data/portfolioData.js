@@ -16,7 +16,7 @@ export const PERSONAL_INFO = {
   linkedin: "https://www.linkedin.com/in/aditya-kumar-26a107212/",
   github: "https://github.com/AADIKANE002",
   leetcode: "https://leetcode.com/",
-  resumePdfUrl: "./Aditya_Kumar_Data_Scientist_Resume.pdf",
+  resumePdfUrl: "./Aditya_Kumar.pdf",
   resumeDocxUrl: "./Aditya_Kumar_Data_Scientist_Resume.docx",
   bio: "Data Scientist with 2+ years of experience building machine learning, statistical modeling, and GenAI-driven analytics solutions for enterprise clients. Skilled in transforming raw enterprise data into actionable insights through feature engineering, hypothesis-driven experimentation, and rigorous model evaluation (MAPE). Delivered production forecasting systems on AWS Lambda, automated data-quality workflows saving 40+ hours/week, and built segmentation models that improved targeting efficiency by 20%.",
   stats: [

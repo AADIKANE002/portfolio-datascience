@@ -37,7 +37,7 @@ const ResumeSection = ({ isOpen, onClose }) => {
             {/* Direct Download Button */}
             <a
               href={PERSONAL_INFO.resumePdfUrl}
-              download="Aditya_Kumar_Data_Scientist_Resume.pdf"
+              download="Aditya_Kumar.pdf"
               onClick={() => soundFx.playSuccess()}
               className="flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black shadow-lg shadow-emerald-500/25 transition-all hover:scale-105 active:scale-95"
             >
@@ -45,16 +45,7 @@ const ResumeSection = ({ isOpen, onClose }) => {
               <span>Download PDF</span>
             </a>
 
-            {/* Docx Download Button */}
-            <a
-              href={PERSONAL_INFO.resumeDocxUrl}
-              download="Aditya_Kumar_Data_Scientist_Resume.docx"
-              onClick={() => soundFx.playClick()}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl bg-space-800 hover:bg-space-700 border border-white/10 text-slate-300 hover:text-white transition-all"
-            >
-              <FileText className="w-3.5 h-3.5 text-emerald-400" />
-              <span>DOCX</span>
-            </a>
+            
 
             {/* Close Button */}
             <button
@@ -79,7 +70,7 @@ const ResumeSection = ({ isOpen, onClose }) => {
             />
             {/* Fallback download banner if iframe blocked */}
             <div className="p-3 bg-space-900 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-              <span>Viewing: <strong className="text-slate-200">Aditya_Kumar_Data_Scientist_Resume.pdf</strong></span>
+              <span>Viewing: <strong className="text-slate-200">Aditya_Kumar.pdf</strong></span>
               <a
                 href={PERSONAL_INFO.resumePdfUrl}
                 target="_blank"
