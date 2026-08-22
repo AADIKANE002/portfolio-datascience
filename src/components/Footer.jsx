@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-black font-extrabold text-sm">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-black font-extrabold text-sm">
             AK
           </div>
           <div>
@@ -23,7 +23,7 @@ const Footer = () => {
               Aditya Kumar
             </span>
             <p className="text-xs text-slate-400">
-              Software Development Engineer • Genpact
+              Data Scientist • Genpact
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Footer = () => {
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noreferrer"
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-cyan-400 transition-colors"
+            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-emerald-400 transition-colors"
             title="GitHub"
           >
             <GithubIcon className="w-4 h-4" />
@@ -43,14 +43,14 @@ const Footer = () => {
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-blue-400 transition-colors"
+            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-teal-400 transition-colors"
             title="LinkedIn"
           >
             <LinkedinIcon className="w-4 h-4" />
           </a>
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
-            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-cyan-400 transition-colors"
+            className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-emerald-400 transition-colors"
             title="Email"
           >
             <Mail className="w-4 h-4" />
@@ -60,7 +60,7 @@ const Footer = () => {
         {/* Back to Top */}
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold rounded-xl bg-space-900 border border-white/10 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all hover:scale-105"
+          className="flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold rounded-xl bg-space-900 border border-white/10 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 transition-all hover:scale-105"
         >
           <span>Back to top</span>
           <ArrowUp className="w-3.5 h-3.5" />
@@ -68,7 +68,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-8 text-center text-xs text-slate-400 font-mono">
-        Designed & Architected by Aditya Kumar • {new Date().getFullYear()} • Powered by React & Cloud AI
+        Designed & Architected by Aditya Kumar • {new Date().getFullYear()} • Data Science & GenAI
       </div>
     </footer>
   );

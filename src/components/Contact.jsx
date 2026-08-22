@@ -47,14 +47,12 @@ const Contact = ({ onShowToast }) => {
     soundFx.playSuccess();
     setIsSubmitting(true);
 
-    // Trigger celebratory confetti
     confetti({
       particleCount: 70,
       spread: 60,
       origin: { y: 0.7 }
     });
 
-    // Create mailto link for direct sending
     const mailtoUrl = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(
       formData.subject || `Message from ${formData.name}`
     )}&body=${encodeURIComponent(
@@ -74,15 +72,15 @@ const Contact = ({ onShowToast }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-medium mb-3">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Get In Touch</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Let's <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Connect</span>
+            Let's <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 bg-clip-text text-transparent">Connect</span>
           </h2>
           <p className="mt-4 text-slate-400 max-w-2xl text-base sm:text-lg">
-            Whether you have an exciting backend engineering role, a distributed systems challenge, an AI project, or just want to say hi!
+            Whether you have an exciting Data Science role, time-series challenge, GenAI analytics project, or just want to say hi!
           </p>
         </div>
 
@@ -90,9 +88,9 @@ const Contact = ({ onShowToast }) => {
           {/* Left Column: Direct Contacts & Social Cards (5 Cols) */}
           <div className="lg:col-span-5 space-y-4">
             {/* Email Card */}
-            <div className="glass-panel rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-cyan-500/40 transition-all">
+            <div className="glass-panel rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-emerald-500/40 transition-all">
               <div className="flex items-center gap-3.5">
-                <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -101,7 +99,7 @@ const Contact = ({ onShowToast }) => {
                   </div>
                   <a
                     href={`mailto:${PERSONAL_INFO.email}`}
-                    className="text-sm sm:text-base font-bold text-white hover:text-cyan-400 transition-colors"
+                    className="text-sm sm:text-base font-bold text-white hover:text-emerald-400 transition-colors"
                   >
                     {PERSONAL_INFO.email}
                   </a>
@@ -109,7 +107,7 @@ const Contact = ({ onShowToast }) => {
               </div>
               <button
                 onClick={() => handleCopy('email', PERSONAL_INFO.email)}
-                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-cyan-400 transition-all"
+                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-emerald-400 transition-all"
                 title="Copy Email"
               >
                 {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -117,9 +115,9 @@ const Contact = ({ onShowToast }) => {
             </div>
 
             {/* Phone Card */}
-            <div className="glass-panel rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-cyan-500/40 transition-all">
+            <div className="glass-panel rounded-2xl p-5 border border-white/10 flex items-center justify-between group hover:border-emerald-500/40 transition-all">
               <div className="flex items-center gap-3.5">
-                <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                <div className="p-3 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -128,7 +126,7 @@ const Contact = ({ onShowToast }) => {
                   </div>
                   <a
                     href={`tel:${PERSONAL_INFO.phone}`}
-                    className="text-sm sm:text-base font-bold text-white hover:text-blue-400 transition-colors"
+                    className="text-sm sm:text-base font-bold text-white hover:text-teal-400 transition-colors"
                   >
                     {PERSONAL_INFO.phone}
                   </a>
@@ -136,7 +134,7 @@ const Contact = ({ onShowToast }) => {
               </div>
               <button
                 onClick={() => handleCopy('phone', PERSONAL_INFO.phone)}
-                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-cyan-400 transition-all"
+                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-emerald-400 transition-all"
                 title="Copy Phone"
               >
                 {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -145,7 +143,7 @@ const Contact = ({ onShowToast }) => {
 
             {/* Location Card */}
             <div className="glass-panel rounded-2xl p-5 border border-white/10 flex items-center gap-3.5">
-              <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+              <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
@@ -179,7 +177,7 @@ const Contact = ({ onShowToast }) => {
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => soundFx.playClick()}
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-300 text-sm font-semibold transition-all hover:scale-105"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-teal-600/20 hover:bg-teal-600/30 border border-teal-500/30 text-teal-300 text-sm font-semibold transition-all hover:scale-105"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                   <span>LinkedIn</span>
@@ -205,7 +203,7 @@ const Contact = ({ onShowToast }) => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Sarah Jenkins"
-                    className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-cyan-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-emerald-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors"
                   />
                 </div>
 
@@ -219,7 +217,7 @@ const Contact = ({ onShowToast }) => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. sarah@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-cyan-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-emerald-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -233,8 +231,8 @@ const Contact = ({ onShowToast }) => {
                   required
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  placeholder="Opportunity / Collaboration / Project Discussion"
-                  className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-cyan-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors"
+                  placeholder="Data Science Opportunity / Analytics Consultation"
+                  className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-emerald-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors"
                 />
               </div>
 
@@ -247,15 +245,15 @@ const Contact = ({ onShowToast }) => {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Hi Aditya, I'd love to chat about..."
-                  className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-cyan-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors resize-none"
+                  placeholder="Hi Aditya, I'd love to discuss our data science & forecasting project..."
+                  className="w-full px-4 py-3 rounded-xl bg-space-950/80 border border-white/10 focus:border-emerald-500 text-white placeholder:text-slate-600 text-sm outline-none transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-black font-bold text-sm sm:text-base shadow-xl shadow-cyan-500/25 transition-all hover:scale-[1.01] active:scale-95 disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-black font-bold text-sm sm:text-base shadow-xl shadow-emerald-500/25 transition-all hover:scale-[1.01] active:scale-95 disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
                 <span>{isSubmitting ? 'Dispatching...' : 'Send Direct Message'}</span>

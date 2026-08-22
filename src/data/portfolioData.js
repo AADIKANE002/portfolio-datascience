@@ -9,11 +9,11 @@ export const PERSONAL_INFO = {
     "GenAI & LLM Analytics Agent Developer",
     "Competitive Programmer (LeetCode Top 6.3%)"
   ],
-  email: "aditya0211kumar@gmail.com",
+  email: "aditya0211kuar@gmmail.com",
   phone: "+91 6202393823",
   location: "Bengaluru, Karnataka, India",
   status: "Available for Data Science, Time-Series & GenAI Roles",
-  linkedin: "https://www.linkedin.com/in/aditya-kumar-6440a8429/",
+  linkedin: "https://www.linkedin.com/in/aditya-kumar-26a107212/",
   github: "https://github.com/AADIKANE002",
   leetcode: "https://leetcode.com/",
   resumePdfUrl: "./Aditya_Kumar_Data_Scientist_Resume.pdf",
