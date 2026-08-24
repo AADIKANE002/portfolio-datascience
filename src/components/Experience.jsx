@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, TrendingUp, CheckCircle2, ChevronRight, Sparkles } from 'lucide-react';
 import { EXPERIENCES } from '../data/portfolioData';
 import { soundFx } from '../utils/sound';
@@ -23,13 +24,19 @@ const Experience = () => {
           </p>
         </div>
 
-        {/* Timeline Grid */}
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {EXPERIENCES.map((exp) => {
+        {/* Timeline Grid with 3D Effects */}
+        <div className="space-y-8 max-w-4xl mx-auto" style={{ perspective: 1500 }}>
+          {EXPERIENCES.map((exp, index) => {
             const isActive = activeExp === exp.id;
 
             return (
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 50, rotateX: 20, z: -100 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, z: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                whileHover={{ scale: 1.02, rotateX: -3, z: 20 }}
+                transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
+                style={{ transformStyle: 'preserve-3d' }}
                 key={exp.id}
                 onMouseEnter={() => {
                   if (activeExp !== exp.id) {
@@ -44,7 +51,7 @@ const Experience = () => {
                 }`}
               >
                 {/* Header info */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10" style={{ transform: 'translateZ(20px)' }}>
                   <div>
                     <div className="flex items-center gap-3">
                       <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -86,7 +93,7 @@ const Experience = () => {
                 </div>
 
                 {/* Highlights List */}
-                <div className="mt-6 space-y-3.5">
+                <div className="mt-6 space-y-3.5" style={{ transform: 'translateZ(30px)' }}>
                   {exp.highlights.map((item, hIdx) => (
                     <div key={hIdx} className="flex items-start gap-3">
                       <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
@@ -100,7 +107,7 @@ const Experience = () => {
                 </div>
 
                 {/* Tech Stack Chips */}
-                <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center gap-2">
+                <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center gap-2" style={{ transform: 'translateZ(40px)' }}>
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-2">
                     Technologies:
                   </span>
@@ -113,7 +120,7 @@ const Experience = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

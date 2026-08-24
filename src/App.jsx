@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import ParticleBackground from './components/ParticleBackground';
+import DataCore from './components/canvas/DataCore';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -47,8 +47,10 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-space-950 text-slate-100 selection:bg-cyan-500 selection:text-black">
-      {/* Interactive Particle Constellation */}
-      <ParticleBackground theme={theme} />
+      {/* 3D WebGL Background Canvas */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <DataCore />
+      </div>
 
       {/* Grid Pattern Overlay */}
       <div className="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none z-0" />

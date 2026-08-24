@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FolderGit2, ExternalLink, Sparkles, ChevronRight, Layers } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { PROJECTS } from '../data/portfolioData';
@@ -54,29 +55,38 @@ const Projects = ({ onSelectProject }) => {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
-            <div
+        {/* Projects Grid with Heavy 3D Scrolling Effects */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ perspective: 1500 }}>
+          <AnimatePresence>
+          {filteredProjects.map((project, index) => (
+            <motion.div
               key={project.id}
-              className="glass-panel glass-panel-hover rounded-2xl overflow-hidden border border-white/10 flex flex-col group"
+              layout
+              initial={{ opacity: 0, scale: 0.8, rotateX: 30, rotateY: index % 2 === 0 ? -20 : 20, z: -200 }}
+              whileInView={{ opacity: 1, scale: 1, rotateX: 0, rotateY: 0, z: 0 }}
+              exit={{ opacity: 0, scale: 0.8, rotateX: -30 }}
+              viewport={{ once: true, margin: '-50px' }}
+              whileHover={{ scale: 1.03, rotateX: -5, rotateY: index % 2 === 0 ? 5 : -5, z: 50 }}
+              transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
+              style={{ transformStyle: 'preserve-3d' }}
+              className="glass-panel glass-panel-hover rounded-3xl overflow-hidden border border-white/10 flex flex-col group shadow-2xl bg-space-900/90"
             >
               {/* Image & Header Overlay */}
-              <div className="relative h-56 sm:h-64 overflow-hidden">
+              <div className="relative h-56 sm:h-64 overflow-hidden rounded-t-3xl z-10" style={{ transform: 'translateZ(30px)' }}>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-space-950 via-space-950/60 to-transparent" />
 
                 {/* Badges on image */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="px-3 py-1 text-xs font-mono font-semibold rounded-full bg-space-900/90 text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+                  <span className="px-3 py-1 text-xs font-mono font-semibold rounded-full bg-space-900/90 text-emerald-300 border border-emerald-500/30 backdrop-blur-md shadow-lg">
                     {project.category}
                   </span>
                   {project.featured && (
-                    <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 backdrop-blur-md flex items-center gap-1">
+                    <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 backdrop-blur-md flex items-center gap-1 shadow-lg">
                       <Sparkles className="w-3 h-3" />
                       Featured
                     </span>
@@ -92,7 +102,7 @@ const Projects = ({ onSelectProject }) => {
                     e.stopPropagation();
                     soundFx.playClick();
                   }}
-                  className="absolute top-4 right-4 p-2.5 rounded-xl bg-space-900/90 hover:bg-space-800 text-slate-300 hover:text-emerald-400 border border-white/15 backdrop-blur-md transition-all hover:scale-110"
+                  className="absolute top-4 right-4 p-2.5 rounded-xl bg-space-900/90 hover:bg-space-800 text-slate-300 hover:text-emerald-400 border border-white/15 backdrop-blur-md transition-all hover:scale-110 shadow-lg"
                   title="View GitHub Repository"
                 >
                   <GithubIcon className="w-4 h-4" />
@@ -100,17 +110,17 @@ const Projects = ({ onSelectProject }) => {
 
                 {/* Bottom Overlay Title on Image */}
                 <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors drop-shadow-md">
                     {project.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-emerald-200/90 line-clamp-1 mt-0.5">
+                  <p className="text-xs sm:text-sm text-emerald-200/90 line-clamp-1 mt-0.5 font-medium drop-shadow">
                     {project.tagline}
                   </p>
                 </div>
               </div>
 
               {/* Content Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="p-6 flex-1 flex flex-col justify-between z-20" style={{ transform: 'translateZ(40px)' }}>
                 <p className="text-slate-400 text-sm leading-relaxed mb-5">
                   {project.description}
                 </p>
@@ -121,7 +131,7 @@ const Projects = ({ onSelectProject }) => {
                     {project.techStack.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2.5 py-0.5 text-xs font-mono rounded bg-white/5 border border-white/10 text-slate-300 group-hover:border-emerald-500/30 group-hover:text-emerald-200 transition-colors"
+                        className="px-2.5 py-0.5 text-xs font-mono rounded-lg bg-space-950 border border-white/10 text-slate-300 group-hover:border-emerald-500/30 group-hover:text-emerald-200 transition-colors shadow-inner"
                       >
                         {tech}
                       </span>
@@ -135,7 +145,7 @@ const Projects = ({ onSelectProject }) => {
                         soundFx.playClick();
                         onSelectProject(project);
                       }}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors group/btn"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors group/btn"
                     >
                       <span>Methodology & Deep Dive</span>
                       <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -154,9 +164,10 @@ const Projects = ({ onSelectProject }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
